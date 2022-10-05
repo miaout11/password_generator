@@ -1,5 +1,6 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
+const generatePassword = require('./generate_password')  // 載入寫好的產生密碼函式
 const app = express()
 const port = 3000
 
@@ -19,8 +20,10 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-    console.log('req.body', req.body)
-    res.render('index')
+    const options = req.body
+    const password = generatePassword(options)
+    // console.log('random password is: ', generatePassword(req.body))
+    res.render('index', { password: password, options: options })
 })
 
 // starts the express server and listening for connections.

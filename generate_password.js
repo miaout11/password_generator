@@ -6,22 +6,22 @@ function sample(collection) {
 }
 
 // define generatePassword function
-function generatePassword() {
+function generatePassword(options) {
     // define things user might want
     const lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz'
     const upperCaseLetters = lowerCaseLetters.toUpperCase()
     const numbers = '1234567890'
     const symbols = '`~!@$%^&*()-_+={}[]|;:"<>,.?/'
 
-    // dummy data of req.body(先使用假資料來測試函式能否正確執行)
-    const options = {
-        length: 8,
-        lowercase: 'on',
-        uppercase: 'on',
-        numbers: 'on',
-        // symbols: 'on',
-        excludeCharacters: '40'
-    }
+    // // dummy data of req.body(先使用假資料來測試函式能否正確執行)
+    // const options = {
+    //     length: 8,
+    //     lowercase: 'on',
+    //     uppercase: 'on',
+    //     numbers: 'on',
+    //     // symbols: 'on',
+    //     excludeCharacters: '40'
+    // }
 
     // create a collection to store things user picked up
     // use split()將字串轉成陣列，沒有帶入任何參數時，
@@ -56,9 +56,8 @@ function generatePassword() {
         password += sample(collection)
     }
     // return the generated password
-    console.log(password)
     return password
 }
 
-// invoke generatePassword function 
-generatePassword()
+// 透過下列程式碼匯出，之後便能在 app.js 中使用 require 載入
+module.exports = generatePassword 

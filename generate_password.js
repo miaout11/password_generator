@@ -50,7 +50,7 @@ function generatePassword(options) {
             character => !options.excludeCharacters.includes(character)
         )
     }
-    // 避免空陣列出現錯誤訊息
+    // return error notice if collection is empty
     if ( collection.length === 0 ) {
         return 'There is no valid character in your selection.'
     }

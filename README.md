@@ -2,9 +2,9 @@
 
 可以產生一組4-16個長度的隨機密碼
 
-![Index page about Restaurant List](./public/image/password_generator1.png)
+![Index page about Password Generator](./public/image/password_generator1.png)
 
-![Index page about Restaurant List](./public/image/password_generator2.png)
+![Index page about Password Generator](./public/image/password_generator2.png)
 
 ## 功能列表
 

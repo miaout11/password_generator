@@ -1,6 +1,12 @@
+// define sample function to randomly return an item in an array
+// random index 0~9 使用 Math.random() // 0 <= n < 1 // Math.floor() 無條件捨去小數點
+function sample(collection) {
+    let randomIndex = Math.floor(Math.random() * collection.length)
+    return collection[randomIndex]
+}
+
 // define generatePassword function
 function generatePassword() {
-    console.log('This function will generate password')
     // define things user might want
     const lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz'
     const upperCaseLetters = lowerCaseLetters.toUpperCase()
@@ -9,12 +15,12 @@ function generatePassword() {
 
     // dummy data of req.body(先使用假資料來測試函式能否正確執行)
     const options = {
-        length: 12,
+        length: 8,
         lowercase: 'on',
         uppercase: 'on',
         numbers: 'on',
         // symbols: 'on',
-        excludeCharacters: '13579'
+        excludeCharacters: '40'
     }
 
     // create a collection to store things user picked up
@@ -44,12 +50,15 @@ function generatePassword() {
             character => !options.excludeCharacters.includes(character)
         )
     }
-    console.log('collection', collection)
+    // start generating password
+    let password = ''
+    for (let i = 0; i < Number(options.length); i++) {
+        password += sample(collection)
+    }
+    // return the generated password
+    console.log(password)
+    return password
 }
-
-// start generating password
-
-// return the generated password
 
 // invoke generatePassword function 
 generatePassword()
